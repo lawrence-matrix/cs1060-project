@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Movie Recommender</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 40px; }
+      .container { max-width: 640px; margin: auto; }
+      label { display: block; margin-top: 1rem; }
+      input, select { width: 100%; padding: 8px; margin-top: 0.4rem; }
+      button { margin-top: 1rem; padding: 10px 16px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Movie Recommender</h1>
+      <p>Pick a genre or mood and get a curated list of movie suggestions.</p>
+      <form action="/recommend" method="post">
+        <label>
+          Genre:
+          <select name="genre">
+            <option value="">Any</option>
+            <option>Action</option>
+            <option>Biography</option>
+            <option>Comedy</option>
+            <option>Drama</option>
+            <option>Musical</option>
+            <option>Romance</option>
+            <option>Sci-Fi</option>
+            <option>Thriller</option>
+          </select>
+        </label>
+        <label>
+          Mood:
+          <select name="mood">
+            <option value="">Any</option>
+            <option>Inspiring</option>
+            <option>Intense</option>
+            <option>Lighthearted</option>
+            <option>Mind-bending</option>
+            <option>Romantic</option>
+            <option>Stylish</option>
+            <option>Thrilling</option>
+          </select>
+        </label>
+        <label>
+          Earliest release year:
+          <input type="text" name="year_min" placeholder="e.g. 2000">
+        </label>
+        <label>
+          Latest release year:
+          <input type="text" name="year_max" placeholder="e.g. 2020">
+        </label>
+        <button type="submit">Recommend</button>
+      </form>
+      <p>Or use the API: <code>/api/recommend?genre=Drama&mood=Inspiring&year_min=2010</code></p>
+    </div>
+  </body>
+</html>

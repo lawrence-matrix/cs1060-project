@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Recommendations</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 40px; }
+      .container { max-width: 640px; margin: auto; }
+      ul { padding-left: 1.2rem; }
+      .empty { color: #333; }
+      .back { margin-top: 1.5rem; display: inline-block; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Recommendations</h1>
+      <p>Search criteria:</p>
+      <ul>
+        <li><strong>Genre:</strong> {{ genre or 'Any' }}</li>
+        <li><strong>Mood:</strong> {{ mood or 'Any' }}</li>
+        <li><strong>Year range:</strong> {{ year_min or 'Any' }} to {{ year_max or 'Any' }}</li>
+      </ul>
+
+      {% if recommendations %}
+      <h2>Top matches</h2>
+      <ol>
+        {% for movie in recommendations %}
+        <li>
+          <strong>{{ movie.title }}</strong> ({{ movie.year }})<br>
+          Genres: {{ movie.genres | join(', ') }}<br>
+          Rating: {{ movie.rating }} / Mood: {{ movie.moods | join(', ') }}
+        </li>
+        {% endfor %}
+      </ol>
+      {% else %}
+      <p class="empty">No movies matched those preferences. Please try a broader genre or mood.</p>
+      {% endif %}
+
+      <a class="back" href="/">Back to search</a>
+    </div>
+  </body>
+</html>
