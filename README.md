@@ -20,6 +20,10 @@ A small movie recommender system built for a CS1060 final project. The app provi
 2. Start the app:
    ```bash
    python3 src/app.py
+
+   cd /workspaces/cs1060-project
+   python3 -m src.app
+
    ```
 3. Visit `http://127.0.0.1:5000` in your browser.
 
